@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
-import { useGeolocation } from '../hook/useGeolocalisation';
+import { useGeolocation } from '../hook/useGeolocation';
 
 const RecenterAutomatically = ({ lat, lon }: { lat: number; lon: number }) => {
   const map = useMap();
@@ -18,10 +18,7 @@ const Map = ({ places }: { places: any[] }) => {
 
   return (
     <MapContainer center={defaultPosition} zoom={13} style={{ height: '80vh', width: '100%' }}>
-      <TileLayer
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-        attribution='&copy; OpenStreetMap contributors'
-      />
+      <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
 
       {position && (
         <>
@@ -36,7 +33,7 @@ const Map = ({ places }: { places: any[] }) => {
               })
             }
           >
-            <Popup>Votre position actuelle 📍</Popup>
+            <Popup>Your current position 📍</Popup>
           </Marker>
         </>
       )}
